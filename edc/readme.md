@@ -22,3 +22,6 @@ npx oz compile
 
 
 https://solidity-by-example.org/0.6/app/erc20/
+
+
+https://docs.openzeppelin.com/learn/deploying-and-interacting#getting-started-with-the-cli

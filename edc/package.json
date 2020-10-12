@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@openzeppelin/cli": "^2.8.2",
     "openzeppelin-solidity": "^3.2.0"
+  },
+  "devDependencies": {
+    "@openzeppelin/cli": "^2.8.2"
   }
 }

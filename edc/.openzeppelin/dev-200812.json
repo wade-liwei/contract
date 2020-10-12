@@ -1,0 +1,14 @@
+{
+  "contracts": {},
+  "solidityLibs": {},
+  "proxies": {
+    "edc/EDC": [
+      {
+        "address": "0xE1665434C52065817AeD78Ed5Fe553f85AACC026",
+        "kind": "NonProxy",
+        "bytecodeHash": "c527d19b81bb078c2d65ab023e1531de9f048b97191d52e75c73fc7e6a8ebdc8"
+      }
+    ]
+  },
+  "manifestVersion": "2.2"
+}
