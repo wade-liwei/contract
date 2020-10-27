@@ -38,6 +38,9 @@ counter = counterContract.new(
 
 eth.getTransactionReceipt("0xd6b5bbe79283d9cb51321043054296552b6287fe3528af9c3ddef6e79a384cea")
 
+0x9c143957aca8077889cd387b2d17f0f3d2401510ec7cef80753dd2010d8b929e
+
+eth.getTransactionReceipt("0x9c143957aca8077889cd387b2d17f0f3d2401510ec7cef80753dd2010d8b929e")
 
 
 
@@ -57,7 +60,7 @@ myContract=eth.contract(abi).at(contractAddres);
 myContract.balanceOf(myAccount);
 
 
-myContract.transfer("0x2f3b2ab8c9a44a8d82149880907e90178d5ffe4b", 10000000000000000000000, {from: myAccount, gas: 100000, gasPrice: 10})
+myContract.transfer("0x2f3b2ab8c9a44a8d82149880907e90178d5ffe4b", 10000000000000000000, {from: myAccount, gas: 100000, gasPrice: 10})
 
 
 
@@ -80,3 +83,72 @@ myContract.totalSupply()
 myContract.decimals()
 myContract.name()
 myContract.symbol()
+
+
+
+myContract.balanceOf(myAccount);
+myContract.balanceOf(0x2f3b2ab8c9a44a8d82149880907e90178d5ffe4b);
+
+
+1500000 000000000000000000
+
+1500000000000000000000000
+
+
+0x2f3b2ab8c9a44a8d82149880907e90178d5ffe4b
+
+
+myContract.transfer("0x2f3b2ab8c9a44a8d82149880907e90178d5ffe4b", 1500000000000000000000000, {from: myAccount, gas: 10000, gasPrice: 6})
+
+
+
+myContract.transfer("0x2f3b2ab8c9a44a8d82149880907e90178d5ffe4b", 1500000000000000000000000, {from: myAccount, gas: 10000, gasPrice: 6})
+
+
+myContract.transfer("0xa0b2cf19c017597c5356e85fdcbc0360721c44c4", 1000000000000000000, {from: myAccount, gas: 75000, gasPrice: 6})
+
+
+myContract.transfer("0x4985560a0f253b4cbcc7380bcdbb1799af9d1278", 1000000000000000000, {from: myAccount, gas: 75000, gasPrice: 6})
+
+
+
+http://explorer.hallechain.cn/txs?txID=0
+
+0xa0b2cf19c017597c5356e85fdcbc0360721c44c4
+
+halle15zev7xwqzavhc56kap0ae0qrvpepc3xyp58jcu
+
+0x4985560a0f253b4cbcc7380bcdbb1799af9d1278
+
+halle1fxz4vzs0y5a5e0x88q9umwchnxhe6ync7nmclz
+
+
+chmv项目的chmc热钱包地址： halle15zev7xwqzavhc56kap0ae0qrvpepc3xyp58jcu
+                        0xa0b2cf19c017597c5356e85fdcbc0360721c44c4
+hale项目的chmc热钱包地址： halle1fxz4vzs0y5a5e0x88q9umwchnxhe6ync7nmclz
+                        0x4985560a0f253b4cbcc7380bcdbb1799af9d1278
+      1000000000000000000
+1500000000000000000000000
+      1000000000000000000
+1500000000000000000000000
+      1000000000000000000
+1500000 000000000000000000
+
+
+myContract.transfer("0xa0b2cf19c017597c5356e85fdcbc0360721c44c4", 1500000000000000000000000, {from: myAccount, gas: 75000, gasPrice: 6})
+
+
+myContract.transfer("0x4985560a0f253b4cbcc7380bcdbb1799af9d1278", 1500000000000000000000000, {from: myAccount, gas: 75000, gasPrice: 6})
+
+
+
+
+myContract.transfer("0x6AF926C815DF163B305FD83722D0709A789A47B8", 1000000000000000000, {from: myAccount, gas: 75000, gasPrice: 6})
+
+9.96999987e
+9.96999987e+26
+996999980
+
+996999987000000000000000000
+996999980000000000000000000
+myContract.transfer("0x6AF926C815DF163B305FD83722D0709A789A47B8", 996999980000000000000000000, {from: myAccount, gas: 75000, gasPrice: 6})

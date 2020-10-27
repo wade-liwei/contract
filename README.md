@@ -21,7 +21,7 @@ hallecli config indent true   --home ./key
 hallecli config trust-node true   --home ./key  
 
 
- hallecli rest-server --laddr tcp://127.0.0.1:9545 --unlock-key  deployChmc   --chain-id=200812 --trace --unsafe-cors=true --home .hallecli-contract/ --node tcp://182.92.62.71:26657
+ hallecli rest-server --laddr tcp://127.0.0.1:8545 --unlock-key  deployChmc   --chain-id=200812 --trace --unsafe-cors=true --home ./key --node tcp://182.92.62.71:26657
 
 geth  attach  http://127.0.0.1:9545
 

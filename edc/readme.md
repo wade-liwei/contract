@@ -3,19 +3,12 @@
 ##  install dep
 
 
-  npm init -y
-  npm i @openzeppelin/cli
-  npx openzeppelin init
-<!--
-  npm install --save-dev @openzeppelin/cli
-
-  npx oz compile
-  npm install openzeppelin-solidity
-  npx oz compile -->
+npm init -y
+npm i @openzeppelin/cli
+npm install openzeppelin-solidity
+npx openzeppelin init
 
 ##  compile
-
-
 
 npx oz compile
 
