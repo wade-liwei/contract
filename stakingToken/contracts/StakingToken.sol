@@ -30,6 +30,13 @@ contract StakingToken is ERC20, Ownable {
 
 
 
+
+    struct updateStakeHolderRewards {
+      address  stakeholder;
+      uint256  Reward;
+    }
+
+
     constructor (string memory name, string memory symbol)
         ERC20(name, symbol)
         public
@@ -79,6 +86,22 @@ contract StakingToken is ERC20, Ownable {
     {
         return stakes[_stakeholder];
     }
+
+
+    function GetStakes()
+        public
+        view
+        returns(address[] memory _stakeholders, uint256[] memory _stakes)
+    {
+      uint256[] memory _stakes = new uint256[](stakeholders.length);
+      for (uint256 s = 0; s < stakeholders.length; s += 1){
+          _stakes[s]= stakes[stakeholders[s]];
+      }
+      return (stakeholders,_stakes);
+    }
+
+
+
 
     /**
      * @notice A method to the aggregated stakes from all stakeholders.
@@ -180,6 +203,18 @@ contract StakingToken is ERC20, Ownable {
         returns(uint256)
     {
         return stakes[_stakeholder] / 100;
+    }
+
+    function BatchStakeholderRewards(address[] memory _stakeholders, uint256[] memory  _rewards)
+        public
+        onlyOwner
+    {
+
+      for (uint256 s = 0; s < _stakeholders.length; s += 1){
+          address stakeholder = stakeholders[s];
+          uint256 reward = calculateReward(stakeholder);
+          rewards[stakeholder] = rewards[stakeholder].add(reward);
+      }
     }
 
     /**
