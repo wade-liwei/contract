@@ -45,7 +45,7 @@ contract StakingToken is ERC20, Ownable {
         // Similar to how
         // 1 dollar = 100 cents
         // 1 token = 1 * (10 ** decimals)
-        //_mint(msg.sender, 500000000 * 10 ** uint(decimals()));
+        _mint(msg.sender, 500000000 * 10 ** uint(decimals()));
     }
 
     // ---------- STAKES ----------
@@ -93,24 +93,11 @@ contract StakingToken is ERC20, Ownable {
         view
         returns(address[] memory _stakeholders, uint256[] memory _stakes)
     {
-      uint256[] memory newstakes = new uint256[](stakeholders.length);
+      uint256[] memory _stakes = new uint256[](stakeholders.length);
       for (uint256 s = 0; s < stakeholders.length; s += 1){
-          newstakes[s]= stakes[stakeholders[s]];
+          _stakes[s]= stakes[stakeholders[s]];
       }
-      return (stakeholders,newstakes);
-    }
-
-
-    function GetRewards()
-        public
-        view
-        returns(address[] memory _stakeholders, uint256[] memory _rewards)
-    {
-      uint256[] memory newrewards = new uint256[](stakeholders.length);
-      for (uint256 s = 0; s < stakeholders.length; s += 1){
-          newrewards[s]= rewards[stakeholders[s]];
-      }
-      return (stakeholders,newrewards);
+      return (stakeholders,_stakes);
     }
 
 
@@ -229,21 +216,6 @@ contract StakingToken is ERC20, Ownable {
           rewards[stakeholder] = rewards[stakeholder].add(reward);
       }
     }
-
-    function Mint(address  recipient, uint256 amount)
-        public
-        onlyOwner
-    {
-      _mint(recipient, amount);
-    }
-
-
-    function Burn(uint256 amount)
-        public
-    {
-      _burn(msg.sender, amount);
-    }
-
 
     /**
      * @notice A method to distribute rewards to all stakeholders.
