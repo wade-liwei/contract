@@ -5,13 +5,20 @@ pragma solidity ^0.6.10;
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
+/* import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
+import "openzeppelin-solidity/contracts/access/AccessControl.sol";
+import "openzeppelin-solidity/contracts/GSN/Context.sol"; */
+
 
 /**
  * @title Staking Token (STK)
  * @notice Implements a basic ERC20 staking token with incentive distribution.
  */
 contract StakingToken is ERC20, Ownable {
+
     using SafeMath for uint256;
+    /* using SafeERC20 for IERC20; */
 
     /**
      * @notice We usually require to know who are all the stakeholders.
@@ -30,11 +37,7 @@ contract StakingToken is ERC20, Ownable {
 
 
 
-
-    struct updateStakeHolderRewards {
-      address  stakeholder;
-      uint256  Reward;
-    }
+    address public interest;
 
 
     constructor (string memory name, string memory symbol)
@@ -46,6 +49,7 @@ contract StakingToken is ERC20, Ownable {
         // 1 dollar = 100 cents
         // 1 token = 1 * (10 ** decimals)
         //_mint(msg.sender, 500000000 * 10 ** uint(decimals()));
+        //interest = _interest
     }
 
     // ---------- STAKES ----------
@@ -245,6 +249,13 @@ contract StakingToken is ERC20, Ownable {
     }
 
 
+    function SetInterestToken(address _interest)
+        public
+        onlyOwner
+    {
+        interest = _interest;
+    }
+
     /**
      * @notice A method to distribute rewards to all stakeholders.
      */
@@ -267,6 +278,49 @@ contract StakingToken is ERC20, Ownable {
     {
         uint256 reward = rewards[msg.sender];
         rewards[msg.sender] = 0;
-        _mint(msg.sender, reward);
+        //_mint(msg.sender, reward);
+
+        if(reward == 0) return;
+
+        //IERC20 token = IERC20(interest);
+        //_withdraw(token,msg.sender, reward);
+        require(
+            doTransferOut(interest, msg.sender, reward),
+            "transferFee: Token transfer out of contract failed."
+        );
+
     }
+
+
+    /* function _withdraw(IERC20 token, address recipient, uint256 amount) internal {
+        token.safeTransfer(recipient, amount);
+    } */
+
+    function doTransferOut(
+        address _token,
+        address _to,
+        uint256 _amount
+    ) internal returns (bool) {
+        IERC20 token = IERC20(_token);
+        bool result;
+
+        token.transfer(_to, _amount);
+
+        assembly {
+            switch returndatasize()
+                case 0 {
+                    result := not(0)
+                }
+                case 32 {
+                    returndatacopy(0, 0, 32)
+                    result := mload(0)
+                }
+                default {
+                    revert(0, 0)
+                }
+        }
+        return result;
+    }
+
+
 }
