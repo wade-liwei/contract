@@ -20,6 +20,7 @@ contract StakingToken is ERC20, Ownable {
     using SafeMath for uint256;
     /* using SafeERC20 for IERC20; */
 
+
     /**
      * @notice We usually require to know who are all the stakeholders.
      */
@@ -222,15 +223,51 @@ contract StakingToken is ERC20, Ownable {
         return stakes[_stakeholder] / 100;
     }
 
-    function BatchStakeholderRewards(address[] memory _stakeholders, uint256[] memory  _rewards)
+
+    /**
+     * @notice A method to distribute rewards to all stakeholders.
+     */
+    function distributeRewards()
+        public
+        onlyOwner
+    {
+        for (uint256 s = 0; s < stakeholders.length; s += 1){
+            address stakeholder = stakeholders[s];
+            uint256 reward = calculateReward(stakeholder);
+            rewards[stakeholder] = rewards[stakeholder].add(reward);
+        }
+    }
+
+
+    function BatchStakeholderAddRewards(address[] memory _stakeholders, uint256[] memory  _rewards)
         public
         onlyOwner
     {
 
+      require(
+          _stakeholders.length == _rewards.length,
+          "BatchStakeholderAddRewards: _stakeholders.length != _rewards.length"
+      );
+
       for (uint256 s = 0; s < _stakeholders.length; s += 1){
           address stakeholder = stakeholders[s];
-          uint256 reward = calculateReward(stakeholder);
-          rewards[stakeholder] = rewards[stakeholder].add(reward);
+          rewards[stakeholder] = rewards[stakeholder].add(_rewards[s]);
+      }
+    }
+
+    function BatchStakeholderSubRewards(address[] memory _stakeholders, uint256[] memory  _rewards)
+        public
+        onlyOwner
+    {
+
+      require(
+          _stakeholders.length == _rewards.length,
+          "BatchStakeholderSubRewards: _stakeholders.length != _rewards.length"
+      );
+
+      for (uint256 s = 0; s < _stakeholders.length; s += 1){
+          address stakeholder = stakeholders[s];
+          rewards[stakeholder] = rewards[stakeholder].sub(_rewards[s]);
       }
     }
 
@@ -256,19 +293,6 @@ contract StakingToken is ERC20, Ownable {
         interest = _interest;
     }
 
-    /**
-     * @notice A method to distribute rewards to all stakeholders.
-     */
-    function distributeRewards()
-        public
-        onlyOwner
-    {
-        for (uint256 s = 0; s < stakeholders.length; s += 1){
-            address stakeholder = stakeholders[s];
-            uint256 reward = calculateReward(stakeholder);
-            rewards[stakeholder] = rewards[stakeholder].add(reward);
-        }
-    }
 
     /**
      * @notice A method to allow a stakeholder to withdraw his rewards.
