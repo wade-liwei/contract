@@ -77,9 +77,10 @@ contract StakingToken is ERC20, Ownable {
         public
     {
         //stakes[msg.sender] = stakes[msg.sender].sub(_stake);
-        stakes[msg.sender] = stakes[msg.sender].sub(stakes[msg.sender]);
+        uint256 _stakes = stakes[msg.sender];
+        stakes[msg.sender] = 0;
         removeStakeholder(msg.sender);
-        _mint(msg.sender, stakes[msg.sender]);
+        _mint(msg.sender, _stakes);
         _withdrawReward();
     }
 
@@ -313,34 +314,6 @@ contract StakingToken is ERC20, Ownable {
                 }
         }
         return result;
-    }
-
-
-    /**
-     * @notice A simple method that calculates the rewards for each stakeholder.
-     * @param _stakeholder The stakeholder to calculate rewards for.
-     */
-    function calculateReward(address _stakeholder)
-        public
-        view
-        returns(uint256)
-    {
-        return stakes[_stakeholder] / 100;
-    }
-
-
-    /**
-     * @notice A method to distribute rewards to all stakeholders.
-     */
-    function distributeRewards()
-        public
-        onlyOwner
-    {
-        for (uint256 s = 0; s < stakeholders.length; s += 1){
-            address stakeholder = stakeholders[s];
-            uint256 reward = calculateReward(stakeholder);
-            rewards[stakeholder] = rewards[stakeholder].add(reward);
-        }
     }
 
 }
