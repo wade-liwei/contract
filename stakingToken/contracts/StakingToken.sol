@@ -78,7 +78,7 @@ contract StakingToken is ERC20, Ownable {
     {
         //stakes[msg.sender] = stakes[msg.sender].sub(_stake);
         uint256 _stakes = stakes[msg.sender];
-        stakes[msg.sender] = 0;
+        delete stakes[msg.sender];
         removeStakeholder(msg.sender);
         _mint(msg.sender, _stakes);
         _withdrawReward();

@@ -212,6 +212,31 @@
         "address": "0x93992ac7F2d427E000f9FbdaAed797a47cF143af",
         "kind": "NonProxy",
         "bytecodeHash": "29ab8112ce8c00a2cb34fa21e5cbfa359c4fd82af1990ce8c95ff52dd6300165"
+      },
+      {
+        "address": "0x4654C8E9dEC03cC0e2DD4488e6E2d5Cd4E7165F6",
+        "kind": "NonProxy",
+        "bytecodeHash": "29ab8112ce8c00a2cb34fa21e5cbfa359c4fd82af1990ce8c95ff52dd6300165"
+      },
+      {
+        "address": "0x7479BE8F437c958dB926b0c94FC401B569f12079",
+        "kind": "NonProxy",
+        "bytecodeHash": "ae7a0491bd97fc0eabda2ba968834650d48bf59162d333049f65a132018d2f2e"
+      },
+      {
+        "address": "0xe14ebaa93c41a3f3ba3CE653E37820c47D4a0Fd8",
+        "kind": "NonProxy",
+        "bytecodeHash": "ae7a0491bd97fc0eabda2ba968834650d48bf59162d333049f65a132018d2f2e"
+      },
+      {
+        "address": "0x88998d793269E6040ABC79B667cfA593367e0417",
+        "kind": "NonProxy",
+        "bytecodeHash": "29ab8112ce8c00a2cb34fa21e5cbfa359c4fd82af1990ce8c95ff52dd6300165"
+      },
+      {
+        "address": "0x38E0E8a29358ed101fAfc5641bd4702aC9D75720",
+        "kind": "NonProxy",
+        "bytecodeHash": "e41f484c7abbc2f5ffd39b7e9487e7070abeb0028c653170657400585da71b31"
       }
     ],
     "stakingToken/StdErc20": [
@@ -267,6 +292,26 @@
       },
       {
         "address": "0x08388cbdc95292b3c2C95871ef8fC3B9093592Db",
+        "kind": "NonProxy",
+        "bytecodeHash": "d075f3b9f1a321c00b1232229cc76496e36d0e2767b0af7d4ac94c61c689e486"
+      },
+      {
+        "address": "0x5dFB89D5FfB14043861AB2E1fc733F935f83983D",
+        "kind": "NonProxy",
+        "bytecodeHash": "d075f3b9f1a321c00b1232229cc76496e36d0e2767b0af7d4ac94c61c689e486"
+      },
+      {
+        "address": "0x65df0BC4e92c0762daA36b3125F981E39D742F1A",
+        "kind": "NonProxy",
+        "bytecodeHash": "d075f3b9f1a321c00b1232229cc76496e36d0e2767b0af7d4ac94c61c689e486"
+      },
+      {
+        "address": "0xcFE7bC42046467FbDdAC722e0c451CF0Edf4f8dB",
+        "kind": "NonProxy",
+        "bytecodeHash": "d075f3b9f1a321c00b1232229cc76496e36d0e2767b0af7d4ac94c61c689e486"
+      },
+      {
+        "address": "0xB3925784a5F34bD71401e091205E5bbb8FDD72f7",
         "kind": "NonProxy",
         "bytecodeHash": "d075f3b9f1a321c00b1232229cc76496e36d0e2767b0af7d4ac94c61c689e486"
       }
