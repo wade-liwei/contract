@@ -1,3 +1,11 @@
+1. 写合约；  
+2. 编译；  
+3. 部署；  
+4. 调用、查询；  
+
+
+
+
  518  npm init -y  
  519  ls  
  520  npm i @openzeppelin/cli  
