@@ -44,6 +44,7 @@ contract StakingToken is ERC20, Ownable {
         ERC20(name, symbol)
         public
     {
+
         // Mint 100 tokens to msg.sender
         // Similar to how
         // 1 dollar = 100 cents
@@ -58,7 +59,7 @@ contract StakingToken is ERC20, Ownable {
      * @notice A method for a stakeholder to create a stake.
      * @param _stake The size of the stake to be created.
      */
-    function createStake(uint256 _stake)
+    /* function createStake(uint256 _stake)
         public
     {
 
@@ -68,12 +69,24 @@ contract StakingToken is ERC20, Ownable {
         if(stakes[msg.sender] == 0) addStakeholder(msg.sender);
         stakes[msg.sender] = stakes[msg.sender].add(_stake);
       }
+    } */
+
+
+    function createStake(uint256 _stake)
+        public
+    {
+        _burn(msg.sender, _stake);
+        if(stakes[msg.sender] == 0) addStakeholder(msg.sender);
+        stakes[msg.sender] = stakes[msg.sender].add(_stake);
     }
+
+
+
 
     /**
      * @notice A method for a stakeholder to remove a stake.
      */
-    function removeStake()
+    /* function removeStake()
         public
     {
         //stakes[msg.sender] = stakes[msg.sender].sub(_stake);
@@ -82,7 +95,19 @@ contract StakingToken is ERC20, Ownable {
         removeStakeholder(msg.sender);
         _mint(msg.sender, _stakes);
         _withdrawReward();
-    }
+    } */
+
+
+    function removeStake(uint256 _stake,uint256 _reward)
+     public
+ {
+     stakes[msg.sender] = stakes[msg.sender].sub(_stake);
+     if(stakes[msg.sender] == 0) removeStakeholder(msg.sender);
+
+     _mint(msg.sender, _stake);
+     _withdrawReward(_reward);
+
+ }
 
     /**
      * @notice A method to retrieve the stake for a stakeholder.
@@ -274,17 +299,14 @@ contract StakingToken is ERC20, Ownable {
     /**
      * @notice A method to allow a stakeholder to withdraw his rewards.
      */
-    function _withdrawReward()
+    function _withdrawReward(uint256 _reward)
         internal
     {
-        uint256 reward = rewards[msg.sender];
-        rewards[msg.sender] = 0;
-        //_mint(msg.sender, reward);
+      if(_reward == 0) return;
+      rewards[msg.sender] = rewards[msg.sender].sub(_reward);
 
-        if(reward == 0) return;
-
-        require(
-            _doTransferOut(interest, msg.sender, reward),
+      require(
+            _doTransferOut(interest, msg.sender, _reward),
             "transferFee: Token transfer out of contract failed."
         );
     }
