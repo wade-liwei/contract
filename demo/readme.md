@@ -3,9 +3,21 @@
 3. 部署；  
 4. 调用、查询；  
 
+## ERC20
+
+566  npm install openzeppelin-solidity  
+567  ls  
+568  npx oz compile   
+569  npx oz deploy   
+570  npx oz send-tx  
+571  npx oz call  
+572  npx oz --help  
+573  npx oz accounts  
+574  npx oz call  
 
 
 
+## Demo
  518  npm init -y  
  519  ls  
  520  npm i @openzeppelin/cli  
