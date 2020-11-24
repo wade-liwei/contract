@@ -8,6 +8,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "2a4f82972979ffcc520c1eb3f9686735b9c495a622f8c8a6bf87d21dfd22db73"
       }
+    ],
+    "demo/StdErc20": [
+      {
+        "address": "0xF98F04F46E6451d339CAb59f3997cA08b3ad5777",
+        "kind": "NonProxy",
+        "bytecodeHash": "3abc61fbdc4ddfda55546408a9c60af60ae86fdf2006632be23682f741f569f5"
+      }
     ]
   },
   "manifestVersion": "2.2"
