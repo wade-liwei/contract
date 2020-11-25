@@ -237,6 +237,11 @@
         "address": "0x38E0E8a29358ed101fAfc5641bd4702aC9D75720",
         "kind": "NonProxy",
         "bytecodeHash": "e41f484c7abbc2f5ffd39b7e9487e7070abeb0028c653170657400585da71b31"
+      },
+      {
+        "address": "0x0928133D244837a21097ae605bAC88A4b893cDd1",
+        "kind": "NonProxy",
+        "bytecodeHash": "93a9e9dda60ebeb692a2ccfa26db7042460b58ace81abd7ec7f01c366e3cd744"
       }
     ],
     "stakingToken/StdErc20": [
@@ -314,6 +319,11 @@
         "address": "0xB3925784a5F34bD71401e091205E5bbb8FDD72f7",
         "kind": "NonProxy",
         "bytecodeHash": "d075f3b9f1a321c00b1232229cc76496e36d0e2767b0af7d4ac94c61c689e486"
+      },
+      {
+        "address": "0xb1507FD2B0a9d2f549D9b3DDD7C6A62aDaDe006a",
+        "kind": "NonProxy",
+        "bytecodeHash": "3abc61fbdc4ddfda55546408a9c60af60ae86fdf2006632be23682f741f569f5"
       }
     ]
   },

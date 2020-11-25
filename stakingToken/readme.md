@@ -1,11 +1,98 @@
 
+## 环境
+### 安装 OpenZeppelin CLI
 
-1.  部署利息合约；
+* https://docs.openzeppelin.com/cli/2.8/getting-started
 
-2.  把利息合约作为参数，部署抵押合约；
 
-3.   用户流程
+```bash
+安装  
+$ npm install @openzeppelin/cli
+$ npx openzeppelin init
 
-     3.1 抵押资产
-     3.2 服务更新利息
-     3.3 取回本金和利息（金额由前端传）
+部署调用
+$ npx oz deploy
+$ npx oz send-tx
+$ npx oz call
+```
+
+
+### 使用依赖
+
+* https://docs.openzeppelin.com/cli/2.8/dependencies
+
+```bash
+$ mkdir token-exchange && cd token-exchange
+$ npm init -y
+$ npm install @openzeppelin/cli
+$ npx openzeppelin init
+```
+### 编译
+
+* https://docs.openzeppelin.com/cli/2.8/compiling
+
+```bash
+$ npx oz compile
+```
+
+
+## 合约内容
+
+### 部署
+ 1. 部署利息合约；
+ 2. 部署抵押合约，并传入利息合约的地址作为释放利息的参数；
+ 3. 在利息合约中，用部署利息合约的地址（资产默认在部署地址上）给抵押合约转移（transfer）准备释放的资产。
+
+### 用户流程
+
+ 1. 兑换
+    由部署抵押合约的地址，释放（mint）或transfer资产到用户地址；
+ 2. 用户调抵押接口
+
+ * 抵押
+ ```solidity
+   function createStake(uint256 _stake)
+ ```
+ * 查询抵押
+```solidity
+    function stakeOf(address _stakeholder)
+```
+ 3. 由部署抵押合约的地址提交利息
+
+* 提交利息
+```solidity
+function BatchStakeholderAddRewards(address[] memory _stakeholders, uint256[] memory  _rewards)
+```
+* 用户查询利息
+
+```solidity
+    function rewardOf(address _stakeholder)
+```
+
+  4. 其他查询接口
+
+```solidity
+function GetStakes()
+
+function GetRewards()
+
+function totalStakes()
+
+function totalRewards()
+
+```
+
+ 5. 用户取回抵押
+
+```solidity
+
+function removeStake(uint256 _stake,uint256 _reward)
+
+```
+
+6. 用户查询抵押本金、取回后的利息
+
+使用用户地址作为参数，调用两个合约的balance接口
+```solidity
+balanceof
+```
