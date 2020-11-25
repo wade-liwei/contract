@@ -164,3 +164,17 @@ http://192.168.3.100:5000/v1/get_halle_by_eth?address=0x43d3bc3eb36015b9d6ca34fd
 http://192.168.3.100:5000/v1/get_eth_by_halle?address=halle1vx30cvgn9d9cuauelqyxhh4aanx0657yl76z73
 
 ```
+
+### Exporting Halle private key from Halle Chain
+
+To export the private key from Halle to something like Metamask, run:
+
+```bash
+hallecli keys unsafe-export-eth-key mykey  --home ./key
+```
+
+Import account through private key, and to verify that the Ethereum address is correct with:
+
+```bash
+hallecli keys parse $(hallecli keys show  -a --home ./key) 
+```
