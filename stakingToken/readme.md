@@ -51,11 +51,11 @@ $ npx oz compile
 
  * 抵押
  ```solidity
-   function createStake(uint256 _stake)
+function createStake(uint256 _stake)
  ```
  * 查询抵押
 ```solidity
-    function stakeOf(address _stakeholder)
+function stakeOf(address _stakeholder)
 ```
  3. 由部署抵押合约的地址提交利息
 
@@ -66,7 +66,7 @@ function BatchStakeholderAddRewards(address[] memory _stakeholders, uint256[] me
 * 用户查询利息
 
 ```solidity
-    function rewardOf(address _stakeholder)
+function rewardOf(address _stakeholder)
 ```
 
   4. 其他查询接口
@@ -94,5 +94,7 @@ function removeStake(uint256 _stake,uint256 _reward)
 
 使用用户地址作为参数，调用两个合约的balance接口
 ```solidity
+
 balanceof
+
 ```
