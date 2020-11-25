@@ -53,9 +53,9 @@ $ npx oz compile
 ## 合约内容
 
 ### 部署
- 1. 部署利息合约；
+ 1. 部署利息合约；（总释放利息 10000000 1000000000000000000）
  2. 部署抵押合约，并传入利息合约的地址作为释放利息的参数；
- 3. 在利息合约中，用部署利息合约的地址（资产默认在部署地址上）给抵押合约转移（transfer）准备释放的资产。
+ 3. 在利息合约中，用部署利息合约的地址（资产默认在部署地址上）给抵押合约转移（transfer）准备释放的资产。 (isudt释放利息 2000000 1000000000000000000)
 
 ```bash
 部署命令
@@ -176,5 +176,5 @@ hallecli keys unsafe-export-eth-key mykey  --home ./key
 Import account through private key, and to verify that the Ethereum address is correct with:
 
 ```bash
-hallecli keys parse $(hallecli keys show  -a mykey --home ./key) 
+hallecli keys parse $(hallecli keys show  -a mykey --home ./key)
 ```
