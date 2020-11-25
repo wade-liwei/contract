@@ -98,3 +98,28 @@ function removeStake(uint256 _stake,uint256 _reward)
 balanceof
 
 ```
+
+
+
+##  使用halle的rest-server替换 OpenZeppelin CLI中的模拟器或eth链节点
+
+```bash
+hallecli config keyring-backend test  --home ./key/
+
+# if mykey exists it should be deleted
+hallecli keys add  mykey --home ./key
+
+hallecli config chain-id  200812   --home ./key  
+hallecli config output json   --home ./key  
+hallecli config indent true   --home ./key  
+hallecli config trust-node true   --home ./key  
+
+主网
+hallecli rest-server --laddr tcp://127.0.0.1:9545 --unlock-key  mykey   --chain-id=200812 -trace --unsafe-cors=true --home ./key --node tcp://182.92.62.71:26657
+
+测试网
+hallecli rest-server --laddr tcp://127.0.0.1:9545 --unlock-key  mykey   --chain-id=200812 -trace --unsafe-cors=true --home ./key --node tcp://192.168.3.100:26657
+
+使用geth console工具
+geth  attach  http://127.0.0.1:9545
+```
