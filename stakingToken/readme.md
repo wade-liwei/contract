@@ -114,6 +114,13 @@ hallecli config output json   --home ./key
 hallecli config indent true   --home ./key  
 hallecli config trust-node true   --home ./key  
 
+
+查询本币资产：
+hallecli  q bank balances $(hallecli keys show  -a mykey) --home ./key/ --node tcp://192.168.3.100:26657
+
+cosmos转移本币
+hallecli tx send  mykey0  $(hallecli keys show  -a mykey)  100uhale  --gas 800000 --gas-prices 5.1uhale      -y  -b  async
+
 主网
 hallecli rest-server --laddr tcp://127.0.0.1:9545 --unlock-key  mykey   --chain-id=200812 -trace --unsafe-cors=true --home ./key --node tcp://182.92.62.71:26657
 
