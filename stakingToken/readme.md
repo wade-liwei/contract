@@ -58,7 +58,11 @@ $ npx oz compile
  3. 在利息合约中，用部署利息合约的地址（资产默认在部署地址上）给抵押合约转移（transfer）准备释放的资产。
 
 ```bash
-npx oz deploy  
+部署命令
+npx oz deploy
+
+查看部署用的地址：
+npx oz accounts  
 ```
 
 ### 用户流程
