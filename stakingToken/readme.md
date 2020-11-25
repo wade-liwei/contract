@@ -153,3 +153,14 @@ hallecli rest-server --laddr tcp://0.0.0.0:8545 --unlock-key mykey --chain-id 20
 使用geth console工具
 geth  attach  http://127.0.0.1:8545
 ```
+
+
+### 地址转换
+
+```bash
+
+http://192.168.3.100:5000/v1/get_halle_by_eth?address=0x43d3bc3eb36015b9d6ca34fd095a465bc0130885
+
+http://192.168.3.100:5000/v1/get_eth_by_halle?address=halle1vx30cvgn9d9cuauelqyxhh4aanx0657yl76z73
+
+```
